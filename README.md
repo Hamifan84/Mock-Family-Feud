@@ -52,4 +52,4 @@ Use a current version of Chrome, Edge, Firefox, or Safari. The game loads Google
 
 ## License
 
-This project is an unofficial, fan-made mock game for personal and internal team use. Family Feud is a trademark of its respective owner; this project is not affiliated with or endorsed by the trademark owner or Chick-fil-A. Feel free to adapt it for other team events.
+This project is an unofficial, fan-made mock game for personal and internal team use. Family Feud is a trademark of its respective owner. Feel free to adapt it for other team events.
