@@ -1,50 +1,56 @@
-# Chick-fil-A Family Feud – Holiday Party Web Game
+# Chick-fil-A Family Feud
 
-## Overview
-This is a fully interactive **Family Feud–style web application** designed for a workplace holiday party at Chick-fil-A. The game replicates a real game show experience with multiple rounds, score tracking, answer reveal animations, strike effects, and host controls. It was built using **HTML, CSS, and JavaScript** and is designed to be engaging, fun, and interactive for team events.
-
----
+An interactive, browser-based Family Feud game for Chick-fil-A team events, parties, and training activities. The game is implemented as a self-contained HTML file, so no build tools, server, or package installation are required.
 
 ## Features
 
-- **Multiple Slides / Rounds** – Navigate between rounds, rules, and title slides.
-- **Interactive Answer Boards** – Click numbers to reveal answers dynamically.
-- **Score Tracking** – Keep track of team scores throughout the game.
-- **Strike System** – Show visual strike overlay for incorrect answers.
-- **Host Controls** – Buttons for correct or wrong answers with sound effects.
-- **Customizable Questions** – Tailor questions to your team’s daily experiences.
-- **Visual & Audio Feedback** – Includes animations, sound effects, and responsive design.
-- **Immersive Design** – Styled to resemble a real Family Feud game show.
+- Family Feud-style answer boards with point values
+- Multiple rounds with interactive answer reveals
+- Two-team score tracking and face-off team selection
+- Strike and buzzer sound effects using the Web Audio API
+- Configurable game setup with custom team names and rounds
+- Saved games using browser local storage
+- Optional Fast Money finale with a configurable timer
+- Responsive game controls and a final winner screen
 
----
+## Run the game
 
-## Technologies Used
+1. Clone or download this repository.
+2. Open [`Mock_Family_Feud.html`](./Mock_Family_Feud.html) in a modern web browser.
+3. Select **Set Up Game** to configure team names, rounds, and optional Fast Money.
+4. Use the on-screen controls to navigate between rounds, reveal answers, award points, and record strikes.
 
-- **HTML5** – Structured the slides, boards, and interface.
-- **CSS3** – Custom styling, animations, responsive design, and theming.
-- **JavaScript** – Interactive functionality, score calculations, slide navigation, and answer reveal logic.
+The game can also be opened directly from the repository after cloning:
 
+```text
+file:///path/to/cfa-familyfeud/Mock_Family_Feud.html
+```
 
----
+## How to play
 
-## Usage
-
-1. Open in a web browser.
-2. Navigate between slides using the **Next** and **Prev** buttons.
-3. Reveal answers by clicking the numbers on the board.
-4. Track team scores in real-time using the scoreboxes.
-5. Use the **Host Controls** for strikes (`X`) or correct answers (`Ding`).
-6. Enjoy a fun, interactive game experience with your team!
-
----
+1. Choose team names and either use the built-in rounds or create custom rounds.
+2. Start the game and use the left and right navigation buttons to move between screens.
+3. Reveal an answer by selecting its numbered card.
+4. When prompted, select the team that won the face-off.
+5. Use **Ding** for correct answers and **Buzz & Strike** for incorrect answers.
+6. Continue through the rounds and use the Fast Money screen when enabled.
+7. The final screen displays the winning team or a tie.
 
 ## Customization
 
-- **Questions & Answers:** Update the HTML content inside `.board-grid` divs to create new rounds or modify existing questions.
-- **Team Names & Scores:** Update the team names and score elements to fit your teams.
-- **Themes & Styles:** Adjust colors, fonts, and layout in the CSS to match your event theme.
-- **Sound Effects:** Replace or add audio files in JavaScript for correct/incorrect answer feedback.
+Questions, answers, team names, scoring, and themes can be adjusted in the HTML and JavaScript. The setup screen supports custom rounds without editing the source.
 
+## Files
+
+| File | Description |
+| --- | --- |
+| [`Mock_Family_Feud.html`](./Mock_Family_Feud.html) | Standalone configurable game experience |
+| [`cfa_game.html`](./cfa_game.html) | Alternate entry point for the same game experience |
+
+## Browser support
+
+Use a current version of Chrome, Edge, Firefox, or Safari. The game loads Google Fonts, Font Awesome, and one background image from external URLs, so an internet connection is recommended for the complete visual presentation. Sound effects require the browser to allow audio after a user interaction.
 
 ## License
-This project is for personal and internal team use. Feel free to adapt for other team events.
+
+This project is for personal and internal team use. Feel free to adapt it for other team events.

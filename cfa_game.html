@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chick-fil-A Family Feud (Enhanced)</title>
+    <title>Mock Family Feud</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Roboto+Condensed:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
@@ -299,6 +299,439 @@ h1, h2, h3 {
     margin-bottom: 5px;
 }
 
+.team-choice-overlay {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 2000;
+}
+
+.team-choice-dialog {
+    min-width: 420px;
+    padding: 30px;
+    background: #003366;
+    border: 4px solid #FFD700;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+.team-choice-dialog h2 {
+    margin-bottom: 25px;
+}
+
+.team-choice-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.team-choice-button {
+    min-width: 150px;
+    padding: 15px 20px;
+    border: 3px solid #fff;
+    border-radius: 8px;
+    color: #fff;
+    font-family: 'Roboto Condensed';
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.team-choice-button.team-one {
+    background: #0055a5;
+}
+
+.team-choice-button.team-two {
+    background: #dd0031;
+}
+
+.game-setup-overlay {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 3000;
+}
+
+.game-setup-dialog {
+    width: min(900px, 100%);
+    max-height: 95vh;
+    overflow-y: auto;
+    padding: 30px;
+    background: #003366;
+    border: 4px solid #FFD700;
+    border-radius: 15px;
+}
+
+.game-setup-dialog h2 {
+    margin-bottom: 20px;
+}
+
+.setup-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.setup-field {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 5px;
+    color: #fff;
+    font-family: 'Roboto Condensed';
+}
+
+.setup-field input,
+.setup-field select {
+    min-height: 42px;
+    padding: 8px;
+    border: 2px solid #55aaff;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.round-editor {
+    margin-top: 20px;
+    padding: 15px;
+    border: 2px solid #55aaff;
+    border-radius: 8px;
+}
+
+.round-editor h3 {
+    margin-bottom: 12px;
+    color: #FFD700;
+}
+
+.answer-editor {
+    display: flex;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+.answer-editor input:first-child {
+    flex: 1;
+}
+
+.answer-editor input:last-child {
+    width: 110px;
+}
+
+.setup-action {
+    margin-top: 20px;
+    padding: 12px 20px;
+    border: 2px solid #fff;
+    border-radius: 6px;
+    background: #dd0031;
+    color: #fff;
+    font-family: 'Roboto Condensed';
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.setup-action.secondary {
+    background: #0055a5;
+}
+
+.setup-button-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.setup-button-row .setup-action {
+    margin-top: 10px;
+    flex: 1;
+}
+
+.setup-error {
+    min-height: 24px;
+    margin-top: 12px;
+    color: #ffb3b3;
+    font-weight: bold;
+}
+
+.fast-money-setup {
+    margin-top: 20px;
+    padding: 15px;
+    border: 2px solid #FFD700;
+    border-radius: 8px;
+}
+
+.fast-money-setup > label {
+    color: #fff;
+    font-family: 'Roboto Condensed';
+    font-size: 20px;
+}
+
+.fast-money-editors {
+    margin-top: 15px;
+}
+
+.fast-money-editor {
+    margin-top: 12px;
+    padding: 12px;
+    border: 1px solid #55aaff;
+    border-radius: 6px;
+}
+
+.fast-money-editor h4 {
+    margin: 0 0 8px;
+    color: #FFD700;
+}
+
+.fast-money-editor .source-select,
+.fast-money-editor .fast-money-question,
+.fast-money-editor .fast-money-answer-count {
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+.fast-money-answers {
+    margin-top: 8px;
+}
+
+.fast-money-answer-row {
+    display: flex;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+.fast-money-answer-row input:first-child {
+    flex: 1;
+}
+
+.fast-money-answer-row input:last-child {
+    width: 110px;
+}
+
+.fast-money-play-status {
+    margin-bottom: 20px;
+    color: #FFD700;
+    font-family: 'Roboto Condensed';
+    font-size: 24px;
+}
+
+.fast-money-scoreboard {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 15px;
+    color: #fff;
+    font-family: 'Roboto Condensed';
+    font-size: 20px;
+}
+
+.fast-money-timer {
+    margin-bottom: 15px;
+    color: #ffdf00;
+    font-family: 'Bangers', cursive;
+    font-size: 48px;
+}
+
+.fast-money-timer.expired {
+    color: #ff6b6b;
+}
+
+.fast-money-question-card {
+    margin: 15px 0;
+    padding: 15px;
+    border: 2px solid #55aaff;
+    border-radius: 8px;
+    text-align: left;
+    overflow: hidden;
+}
+
+.fast-money-question-text {
+    color: #fff;
+    font-size: 24px;
+}
+
+.fast-money-answer-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    margin-top: 12px;
+    width: 100%;
+}
+
+.fast-money-answer-choice,
+.fast-money-action {
+    padding: 10px 14px;
+    min-height: 52px;
+    border: 2px solid #fff;
+    border-radius: 6px;
+    background: #0055a5;
+    color: #fff;
+    font-family: 'Roboto Condensed';
+    font-size: 22px;
+    cursor: pointer;
+    text-align: left;
+}
+
+.fast-money-answer-choice.picked-first {
+    background: #16a34a;
+}
+
+.fast-money-answer-choice.picked-second {
+    background: #8b5cf6;
+}
+
+.fast-money-answer-choice.eliminated {
+    background: #555;
+    color: #bbb;
+    cursor: not-allowed;
+    text-decoration: line-through;
+}
+
+.fast-money-answer-choice.no-points {
+    background: #374151;
+    border: 2px dashed #d1d5db;
+}
+
+.fast-money-answer-choice:disabled {
+    opacity: 1;
+}
+
+.fast-money-action {
+    min-height: 52px;
+    margin-top: 12px;
+    background: #dd0031;
+    text-align: center;
+}
+
+.fast-money-action.secondary {
+    background: #0055a5;
+}
+
+.fast-money-stage {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 240px;
+    gap: 20px;
+    flex: 1 1 auto;
+    height: 320px;
+    min-height: 0;
+    overflow: hidden;
+    text-align: left;
+}
+
+.fast-money-main {
+    min-width: 0;
+    height: 100%;
+    overflow-y: auto;
+    padding-right: 8px;
+}
+
+.fast-money-sidebar {
+    display: none;
+    height: 100%;
+    overflow-y: auto;
+    padding: 15px;
+    border: 2px solid #FFD700;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.45);
+}
+
+.fast-money-sidebar.visible {
+    display: block;
+}
+
+.fast-money-sidebar h3 {
+    margin-bottom: 12px;
+    color: #FFD700;
+    font-size: 24px;
+}
+
+.fast-money-sidebar p {
+    margin: 8px 0;
+    font-size: 16px;
+}
+
+.fast-money-next {
+    width: 100%;
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.fast-money-skip {
+    width: 100%;
+    text-align: center;
+    background: #6b7280;
+}
+
+.fast-money-navigation {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.fast-money-restart {
+    width: 100%;
+    background: #7f1d1d;
+}
+
+.fast-money-action-bar {
+    flex: 0 0 auto;
+    z-index: 5;
+    padding: 10px 0 0;
+    background: rgba(0, 0, 0, 0.85);
+}
+
+.fast-money-timer-action {
+    margin: 0 0 10px;
+    width: 100%;
+    text-align: center;
+}
+
+.fast-money-content {
+    display: flex;
+    flex-direction: column;
+    height: 585px;
+    max-height: none;
+    min-height: 0;
+}
+
+.fast-money-slide {
+    justify-content: flex-start;
+    padding-top: 18px;
+}
+
+.fast-money-slide > h1 {
+    font-size: 64px;
+    margin-bottom: 8px;
+}
+
+.fast-money-slide .fast-money-content {
+    flex: 0 0 585px;
+}
+
+.fast-money-slide .fast-money-content > p {
+    margin: 4px 0 8px;
+    font-size: 18px;
+}
+
+.fast-money-slide .fast-money-play-status {
+    margin: 4px 0 8px;
+    font-size: 20px;
+}
+
+.fast-money-slide .fast-money-scoreboard {
+    margin-bottom: 4px;
+    font-size: 18px;
+}
+
+.fast-money-slide .fast-money-timer {
+    margin-bottom: 6px;
+    font-size: 38px;
+}
+
 .scoreboard-title {
     font-size: 24px;
     color: #dd0031;
@@ -357,7 +790,6 @@ h1, h2, h3 {
 
 <!-- Slide 1: Title_Slide -->
 <div class="slide-container active" id="slide1">
-    <div class="badge">Holiday Party Edition</div>
     <div class="scoreboard">
         <div class="scoreboard-title">SCORE</div>
         <div class="team-name">TEAM 1</div>
@@ -369,7 +801,7 @@ h1, h2, h3 {
         <img src="https://cdn.pixabay.com/photo/2016/03/31/19/57/avatar-1295406_1280.png" class="host-img" alt="Host">
         <div style="text-align: center;">
             <h1 style="font-size: 140px;">FAMILY<br>FEUD</h1>
-            <div style="background: #dd0031; color: white; padding: 10px 30px; font-family: 'Roboto Condensed'; font-size: 40px; transform: rotate(2deg); box-shadow: 5px 5px 0 rgba(0,0,0,0.5);">CHICK-FIL-A STYLE</div>
+            <div style="background: #dd0031; color: white; padding: 10px 30px; font-family: 'Roboto Condensed'; font-size: 40px; transform: rotate(2deg); box-shadow: 5px 5px 0 rgba(0,0,0,0.5);">MOCK FAMILY FEUD</div>
             <p style="margin-top: 30px; font-size: 28px; color: #FFD700;">Tap the numbers to reveal answers!</p>
         </div>
     </div>
@@ -419,7 +851,11 @@ h1, h2, h3 {
         </div>
         <div style="background: rgba(0,0,0,0.3); padding: 40px; border-radius: 15px; width: 45%; border: 2px solid #FFD700;">
             <h3><i class="fa-solid fa-hand-pointer" style="color: #FFD700; margin-right: 10px;"></i> FACE-OFF</h3>
-            <p>One player from each team buzzes in. Top answer takes control. 3 strikes and the other team can STEAL!</p>
+            <p>One player from each team answers during the face-off. Reveal the answer, choose the team that got it right, and that team takes control. After 3 strikes, the other team gets one steal attempt. A missed steal reveals the remaining answers with no points or extra strike.</p>
+        </div>
+        <div style="background: rgba(0,0,0,0.3); padding: 40px; border-radius: 15px; width: 45%; border: 2px solid #FFD700;">
+            <h3><i class="fa-solid fa-bolt" style="color: #FFD700; margin-right: 10px;"></i> FAST MONEY</h3>
+            <p>Fast Money is played by two people. The second player must face away from the screen and must not see the first player's revealed answers. The host records the first player's answers, then the second player answers using only the remaining choices.</p>
         </div>
     </div>
     <div class="nav-controls">
@@ -857,14 +1293,871 @@ h1, h2, h3 {
 <script>
     // ========== GAME STATE ==========
     let currentSlide = 1;
-    const totalSlides = 10;
+    let totalSlides = 10;
     let team1Score = 0;
     let team2Score = 0;
+    let teamNames = ['Team 1', 'Team 2'];
+    let currentGame = null;
     let activeTeam = 1; // 1 or 2
     let strikes = 0;
     const maxStrikes = 3;
+    const roundStates = {};
+
+    function getRoundState() {
+        if (!roundStates[currentSlide]) {
+            roundStates[currentSlide] = {
+                stealPending: false,
+                resolved: false,
+                faceoffResolved: false,
+                pendingAnswerId: null,
+                awardedAnswers: new Set()
+            };
+        }
+        return roundStates[currentSlide];
+    }
 
     // ========== SLIDE NAVIGATION ==========
+    function getSavedGames() {
+        return JSON.parse(localStorage.getItem('cfaFamilyFeudGames') || '[]');
+    }
+
+    function saveGame(game) {
+        const games = getSavedGames().filter(savedGame => savedGame.name !== game.name);
+        games.unshift(game);
+        localStorage.setItem('cfaFamilyFeudGames', JSON.stringify(games));
+    }
+
+    function renderRoundEditors(container, roundCount, rounds = []) {
+        container.innerHTML = '';
+        for (let roundIndex = 0; roundIndex < roundCount; roundIndex++) {
+            const round = rounds[roundIndex] || { question: '', answers: [] };
+            const editor = document.createElement('div');
+            editor.className = 'round-editor';
+
+            const heading = document.createElement('h3');
+            heading.textContent = `Round ${roundIndex + 1}`;
+            editor.appendChild(heading);
+
+            const questionField = document.createElement('label');
+            questionField.className = 'setup-field';
+            questionField.textContent = 'Question';
+            const questionInput = document.createElement('input');
+            questionInput.type = 'text';
+            questionInput.className = 'round-question';
+            questionInput.value = round.question || '';
+            questionInput.placeholder = 'Name something...';
+            questionField.appendChild(questionInput);
+            editor.appendChild(questionField);
+
+            for (let answerIndex = 0; answerIndex < 8; answerIndex++) {
+                const answer = round.answers[answerIndex] || {};
+                const answerRow = document.createElement('div');
+                answerRow.className = 'answer-editor';
+
+                const answerInput = document.createElement('input');
+                answerInput.type = 'text';
+                answerInput.className = 'round-answer';
+                answerInput.value = answer.text || '';
+                answerInput.placeholder = `Answer ${answerIndex + 1}`;
+
+                const pointsInput = document.createElement('input');
+                pointsInput.type = 'number';
+                pointsInput.className = 'round-points';
+                pointsInput.min = '1';
+                pointsInput.value = answer.points || '';
+                pointsInput.placeholder = 'Points';
+
+                answerRow.append(answerInput, pointsInput);
+                editor.appendChild(answerRow);
+            }
+            container.appendChild(editor);
+        }
+    }
+
+    function renderFastMoneyEditors(container, count, rounds, entries = []) {
+        container.innerHTML = '';
+        for (let index = 0; index < count; index++) {
+            const entry = entries[index] || { source: 'custom', question: '', answers: [] };
+            const legacyAnswers = entry.answer ? [{ text: entry.answer, points: 1 }] : [];
+            const answers = entry.answers && entry.answers.length ? entry.answers : legacyAnswers;
+            const editor = document.createElement('div');
+            editor.className = 'fast-money-editor';
+
+            const heading = document.createElement('h4');
+            heading.textContent = `Fast Money Question ${index + 1}`;
+            editor.appendChild(heading);
+
+            const source = document.createElement('select');
+            source.className = 'source-select';
+            source.innerHTML = '<option value="custom">Enter a custom question and answer</option>';
+            rounds.forEach((round, roundIndex) => {
+                const option = document.createElement('option');
+                option.value = `round-${roundIndex}`;
+                option.textContent = `Use Round ${roundIndex + 1}: ${round.question || '(unnamed question)'}`;
+                source.appendChild(option);
+            });
+            source.value = entry.source || 'custom';
+            editor.appendChild(source);
+
+            const question = document.createElement('input');
+            question.className = 'fast-money-question';
+            question.placeholder = 'Fast Money question';
+            question.value = entry.question || '';
+            editor.appendChild(question);
+
+            const answerCount = document.createElement('select');
+            answerCount.className = 'fast-money-answer-count';
+            answerCount.innerHTML = Array.from({ length: 8 }, (_, answerIndex) =>
+                `<option value="${answerIndex + 1}">${answerIndex + 1} acceptable answer${answerIndex ? 's' : ''}</option>`
+            ).join('');
+            answerCount.value = String(Math.max(1, Math.min(8, answers.length || 1)));
+            editor.appendChild(answerCount);
+
+            const answersContainer = document.createElement('div');
+            answersContainer.className = 'fast-money-answers';
+            editor.appendChild(answersContainer);
+
+            const renderAnswers = answerTotal => {
+                const currentAnswers = Array.from(answersContainer.querySelectorAll('.fast-money-answer-row')).map(row => ({
+                    text: row.querySelector('.fast-money-answer').value,
+                    points: row.querySelector('.fast-money-answer-points').value
+                }));
+                answersContainer.innerHTML = '';
+                for (let answerIndex = 0; answerIndex < answerTotal; answerIndex++) {
+                    const answer = answers[answerIndex] || currentAnswers[answerIndex] || {};
+                    const row = document.createElement('div');
+                    row.className = 'fast-money-answer-row';
+
+                    const answerInput = document.createElement('input');
+                    answerInput.className = 'fast-money-answer';
+                    answerInput.placeholder = `Acceptable answer ${answerIndex + 1}`;
+                    answerInput.value = answer.text || '';
+
+                    const pointsInput = document.createElement('input');
+                    pointsInput.className = 'fast-money-answer-points';
+                    pointsInput.type = 'number';
+                    pointsInput.min = '1';
+                    pointsInput.placeholder = 'Points';
+                    pointsInput.value = answer.points || '';
+
+                    row.append(answerInput, pointsInput);
+                    answersContainer.appendChild(row);
+                }
+            };
+            renderAnswers(Number(answerCount.value));
+
+            source.addEventListener('change', () => {
+                if (source.value === 'custom') {
+                    question.readOnly = false;
+                    question.value = '';
+                    answerCount.value = '1';
+                    answers.length = 0;
+                    renderAnswers(1);
+                    return;
+                }
+                const roundIndex = Number(source.value.replace('round-', ''));
+                const round = rounds[roundIndex];
+                question.readOnly = true;
+                question.value = round.question;
+                answers.length = 0;
+                round.answers.slice(0, 8).forEach(answer => answers.push(answer));
+                answerCount.value = String(Math.max(1, answers.length));
+                renderAnswers(Number(answerCount.value));
+            });
+            answerCount.addEventListener('change', () => renderAnswers(Number(answerCount.value)));
+            container.appendChild(editor);
+        }
+    }
+
+    function createGeneratedRoundSlides(game) {
+        document.querySelectorAll('.generated-round').forEach(slide => slide.remove());
+        document.querySelectorAll('.slide-container[id^="slide"]').forEach(slide => {
+            const slideNumber = Number(slide.id.replace('slide', ''));
+            if (slideNumber >= 3 && slideNumber <= 8) slide.remove();
+        });
+
+        const finaleSlide = document.getElementById('slide9');
+        const endSlide = document.getElementById('slide10');
+        const finaleNumber = game.rounds.length + 3;
+        const endNumber = finaleNumber + (game.playFastMoney ? 1 : 0);
+        const roundInsertTarget = game.playFastMoney ? finaleSlide : endSlide;
+        if (game.playFastMoney) {
+            finaleSlide.id = `slide${finaleNumber}`;
+            buildFastMoneySlide(finaleSlide, game.fastMoney, finaleNumber, game.fastMoneySeconds);
+        } else {
+            finaleSlide.remove();
+        }
+        endSlide.id = `slide${endNumber}`;
+        totalSlides = endNumber;
+
+        game.rounds.forEach((round, roundIndex) => {
+            const slideNumber = roundIndex + 3;
+            const slide = document.createElement('div');
+            slide.className = 'slide-container generated-round';
+            slide.id = `slide${slideNumber}`;
+
+            const badge = document.createElement('div');
+            badge.className = 'badge';
+            badge.textContent = `Round ${roundIndex + 1}`;
+            slide.appendChild(badge);
+
+            const scoreboard = document.createElement('div');
+            scoreboard.className = 'scoreboard';
+            scoreboard.innerHTML = `
+                <div class="scoreboard-title">SCORE</div>
+                <div class="team-name"></div>
+                <div class="team-score" id="team1-score-${slideNumber}"></div>
+                <div class="team-name"></div>
+                <div class="team-score" id="team2-score-${slideNumber}"></div>
+            `;
+            slide.appendChild(scoreboard);
+
+            const question = document.createElement('h2');
+            question.textContent = `"${round.question}"`;
+            slide.appendChild(question);
+
+            const board = document.createElement('div');
+            board.className = 'board-grid';
+            round.answers.forEach((answer, answerIndex) => {
+                const answerId = `r${roundIndex + 1}-${answerIndex + 1}`;
+                const wrapper = document.createElement('div');
+                wrapper.className = 'answer-wrapper';
+
+                const input = document.createElement('input');
+                input.type = 'checkbox';
+                input.id = answerId;
+                input.className = 'toggle-input';
+                input.addEventListener('change', () => {
+                    if (input.checked) addPointsFromAnswer(answerId);
+                });
+
+                const cover = document.createElement('label');
+                cover.className = 'cover-card';
+                cover.htmlFor = answerId;
+                cover.textContent = String(answerIndex + 1);
+
+                const actual = document.createElement('div');
+                actual.className = 'actual-answer';
+                actual.textContent = answer.text;
+                const score = document.createElement('span');
+                score.className = 'score-box';
+                score.textContent = String(answer.points);
+                actual.appendChild(score);
+
+                wrapper.append(input, cover, actual);
+                board.appendChild(wrapper);
+            });
+            slide.appendChild(board);
+
+            const controls = document.createElement('div');
+            controls.className = 'nav-controls';
+            controls.innerHTML = `
+                <div class="btn-group">
+                    <button class="nav-btn" onclick="prevSlide()">←</button>
+                    <div class="nav-label">Prev</div>
+                </div>
+                <div class="btn-group">
+                    <button class="nav-btn" onclick="nextSlide()">→</button>
+                    <div class="nav-label">Next</div>
+                </div>
+            `;
+            slide.appendChild(controls);
+
+            const hostControls = document.createElement('div');
+            hostControls.className = 'host-controls';
+            hostControls.innerHTML = `
+                <div class="btn-group">
+                    <button class="control-btn btn-correct" onclick="playCorrect()">✓</button>
+                    <div class="control-label">Ding</div>
+                </div>
+                <div class="btn-group">
+                    <button class="control-btn btn-wrong" onclick="playWrong()">✕</button>
+                    <div class="control-label">Buzz & Strike</div>
+                </div>
+            `;
+            slide.appendChild(hostControls);
+
+            const strikeOverlay = document.createElement('div');
+            strikeOverlay.id = `strike-overlay-${slideNumber}`;
+            strikeOverlay.className = 'strike-overlay-ref';
+            strikeOverlay.innerHTML = '<div class="big-red-x">X</div>';
+            slide.appendChild(strikeOverlay);
+
+            roundInsertTarget.parentNode.insertBefore(slide, roundInsertTarget);
+        });
+    }
+
+    function normalizeFastMoneyPoints(game) {
+        if (!game.playFastMoney) return;
+
+        game.fastMoney = game.fastMoney.map(entry => {
+            const answers = entry.answers || (entry.answer ? [{ text: entry.answer, points: 1 }] : []);
+            if (!answers.length) return { ...entry, answers: [] };
+
+            const totalWeight = answers.reduce((total, answer) => total + Math.max(1, Number(answer.points) || 1), 0);
+            const normalized = answers.map(answer => ({
+                ...answer,
+                points: 1
+            }));
+            const distributable = 20 - normalized.length;
+            const fractional = answers.map((answer, index) => {
+                const exact = (Math.max(1, Number(answer.points) || 1) / totalWeight) * distributable;
+                const whole = Math.floor(exact);
+                normalized[index].points += whole;
+                return { index, remainder: exact - whole };
+            });
+            const allocated = normalized.reduce((total, answer) => total + answer.points, 0);
+            const remaining = 20 - allocated;
+
+            fractional
+                .sort((left, right) => right.remainder - left.remainder)
+                .slice(0, Math.max(0, remaining))
+                .forEach(item => {
+                    normalized[item.index].points++;
+                });
+
+            return { ...entry, answers: normalized };
+        });
+    }
+
+    function buildFastMoneySlide(slide, entries, slideNumber, durationSeconds = 20) {
+        slide.replaceChildren();
+        slide.className = 'slide-container fast-money-slide';
+        let phase = 'first';
+        let questionIndex = 0;
+        const firstSelections = [];
+        const secondSelections = [];
+        let firstScore = 0;
+        let secondScore = 0;
+        let timerId = null;
+        let timeRemaining = durationSeconds;
+        let timerExpired = false;
+        const skippedQuestions = {
+            first: new Set(),
+            second: new Set()
+        };
+
+        const badge = document.createElement('div');
+        badge.className = 'badge';
+        badge.textContent = 'Fast Money';
+        slide.appendChild(badge);
+
+        const heading = document.createElement('h1');
+        heading.textContent = 'FAST MONEY';
+        slide.appendChild(heading);
+
+        const content = document.createElement('div');
+        content.className = 'fast-money-content';
+        content.style.cssText = 'background: rgba(0,0,0,0.4); padding: 18px 24px; border-radius: 15px; border: 2px solid #FFD700; width: min(1180px, 94vw); text-align: center;';
+        const instructions = document.createElement('p');
+        instructions.textContent = 'Goal: 200 combined points. Ask one question at a time. Record the first player’s answer, then have the second player face away from the screen so they cannot see the revealed answers.';
+        content.appendChild(instructions);
+        const status = document.createElement('div');
+        status.className = 'fast-money-play-status';
+        status.textContent = 'First player: choose the answer they gave.';
+        content.appendChild(status);
+        const scoreBoard = document.createElement('div');
+        scoreBoard.className = 'fast-money-scoreboard';
+        content.appendChild(scoreBoard);
+        const timer = document.createElement('div');
+        timer.className = 'fast-money-timer';
+        content.appendChild(timer);
+
+        const stage = document.createElement('div');
+        stage.className = 'fast-money-stage';
+        const main = document.createElement('div');
+        main.className = 'fast-money-main';
+        const sidebar = document.createElement('aside');
+        sidebar.className = 'fast-money-sidebar';
+        const sidebarHeading = document.createElement('h3');
+        sidebarHeading.textContent = 'First player answers';
+        sidebar.appendChild(sidebarHeading);
+        const sidebarList = document.createElement('div');
+        sidebar.appendChild(sidebarList);
+        stage.append(main, sidebar);
+        content.appendChild(stage);
+
+        const action = document.createElement('button');
+        action.type = 'button';
+        action.className = 'fast-money-action fast-money-next';
+        const skipAction = document.createElement('button');
+        skipAction.type = 'button';
+        skipAction.className = 'fast-money-action fast-money-skip';
+        skipAction.textContent = 'Skip question';
+        const navigation = document.createElement('div');
+        navigation.className = 'fast-money-navigation';
+        navigation.append(skipAction, action);
+        const actionBar = document.createElement('div');
+        actionBar.className = 'fast-money-action-bar';
+        const timerAction = document.createElement('button');
+        timerAction.type = 'button';
+        timerAction.className = 'fast-money-action secondary fast-money-timer-action';
+        timerAction.textContent = 'Start first player timer';
+        actionBar.appendChild(timerAction);
+        actionBar.appendChild(navigation);
+        const restartAction = document.createElement('button');
+        restartAction.type = 'button';
+        restartAction.className = 'fast-money-action fast-money-restart';
+        restartAction.textContent = 'Restart Fast Money';
+        actionBar.appendChild(restartAction);
+        content.appendChild(actionBar);
+
+        function getAnswers(entry) {
+            return entry.answers || (entry.answer ? [{ text: entry.answer, points: 1 }] : []);
+        }
+
+        function getSelections() {
+            return phase === 'first' ? firstSelections : secondSelections;
+        }
+
+        function getSkipped() {
+            return skippedQuestions[phase];
+        }
+
+        function getUnansweredQuestions() {
+            const selections = getSelections();
+            return entries
+                .map((entry, index) => index)
+                .filter(index => !selections[index]);
+        }
+
+        function startSecondPlayer() {
+            stopTimer();
+            timerExpired = false;
+            skippedQuestions.first.clear();
+            phase = 'second';
+            questionIndex = 0;
+            secondScore = 0;
+            status.textContent = 'Second player: select an answer not shown in the sidebar.';
+            sidebar.classList.add('visible');
+            renderSidebar();
+            timerAction.disabled = false;
+            timerAction.textContent = 'Start second player timer';
+            renderQuestion();
+        }
+
+        function restartFastMoney() {
+            stopTimer();
+            phase = 'first';
+            questionIndex = 0;
+            firstSelections.length = 0;
+            secondSelections.length = 0;
+            firstScore = 0;
+            secondScore = 0;
+            skippedQuestions.first.clear();
+            skippedQuestions.second.clear();
+            timerExpired = false;
+            timeRemaining = durationSeconds;
+            timer.classList.remove('expired');
+            sidebar.classList.remove('visible');
+            sidebarList.replaceChildren();
+            status.textContent = 'First player: choose the answer they gave.';
+            timerAction.disabled = false;
+            timerAction.textContent = 'Start first player timer';
+            renderQuestion();
+        }
+
+        function advanceQuestion() {
+            const skipped = getSkipped();
+            const unanswered = getUnansweredQuestions();
+
+            const regularNext = unanswered
+                .filter(index => index !== questionIndex && !skipped.has(index))[0];
+            const skippedNext = unanswered
+                .filter(index => index !== questionIndex && skipped.has(index))[0];
+            const nextIndex = regularNext !== undefined ? regularNext : skippedNext;
+            if (nextIndex !== undefined) {
+                questionIndex = nextIndex;
+                renderQuestion();
+                return;
+            }
+
+            if (phase === 'first') {
+                if (unanswered.length && !timerExpired) {
+                    questionIndex = unanswered[0];
+                    renderQuestion();
+                    return;
+                }
+                startSecondPlayer();
+                return;
+            }
+
+            stopTimer();
+            action.disabled = true;
+            skipAction.disabled = true;
+            action.textContent = `Fast Money complete: ${firstScore + secondScore} / 200`;
+            status.textContent = firstScore + secondScore >= 200
+                ? 'Goal reached: 200 combined points!'
+                : `Final combined score: ${firstScore + secondScore} / 200`;
+        }
+
+        function updateFastMoneyStatus() {
+            scoreBoard.textContent = `First: ${firstScore} | Second: ${secondScore} | Combined: ${firstScore + secondScore} / 200`;
+            timer.textContent = `${timeRemaining}s`;
+        }
+
+        function stopTimer(expired = false) {
+            if (timerId !== null) {
+                clearInterval(timerId);
+                timerId = null;
+            }
+            if (expired) {
+                timerExpired = true;
+                timer.classList.add('expired');
+                status.textContent = `${phase === 'first' ? 'First' : 'Second'} player time is up.`;
+                main.querySelectorAll('.fast-money-answer-choice').forEach(button => {
+                    button.disabled = true;
+                });
+            }
+        }
+
+        function startTimer() {
+            stopTimer();
+            timeRemaining = durationSeconds;
+            timerExpired = false;
+            timer.classList.remove('expired');
+            timerAction.disabled = true;
+            timerAction.textContent = `${phase === 'first' ? 'First' : 'Second'} player timer running`;
+            status.textContent = `${phase === 'first' ? 'First' : 'Second'} player timer running.`;
+            updateFastMoneyStatus();
+            action.disabled = false;
+            main.querySelectorAll('.fast-money-answer-choice').forEach(button => {
+                if (!button.classList.contains('eliminated')) button.disabled = false;
+            });
+            timerId = setInterval(() => {
+                timeRemaining--;
+                updateFastMoneyStatus();
+                if (timeRemaining <= 0) stopTimer(true);
+            }, 1000);
+        }
+
+        timerAction.addEventListener('click', () => {
+            if (timerId !== null) return;
+            startTimer();
+        });
+
+        restartAction.addEventListener('click', restartFastMoney);
+
+        function renderQuestion() {
+            main.replaceChildren();
+            const entry = entries[questionIndex];
+            const card = document.createElement('div');
+            card.className = 'fast-money-question-card';
+            const question = document.createElement('div');
+            question.className = 'fast-money-question-text';
+            question.textContent = `${questionIndex + 1}. ${entry.question}`;
+            question.style.cursor = 'pointer';
+            question.title = 'Click to reveal answers';
+            card.appendChild(question);
+
+            const answerList = document.createElement('div');
+            answerList.className = 'fast-money-answer-list';
+            answerList.style.display = 'none';
+            question.addEventListener('click', () => {
+                const expanded = answerList.classList.toggle('expanded');
+                answerList.style.display = expanded ? 'grid' : 'none';
+            });
+            getAnswers(entry).forEach(answer => {
+                const answerButton = document.createElement('button');
+                answerButton.type = 'button';
+                answerButton.className = 'fast-money-answer-choice';
+                answerButton.textContent = `${answer.text} (${answer.points} pts)`;
+                answerButton.disabled = timerId === null;
+                if (getSelections()[questionIndex] &&
+                    getSelections()[questionIndex].text === answer.text) {
+                    answerButton.classList.add(phase === 'first' ? 'picked-first' : 'picked-second');
+                }
+                if (phase === 'second' && firstSelections[questionIndex] &&
+                    firstSelections[questionIndex].text === answer.text) {
+                    answerButton.classList.add('eliminated');
+                    answerButton.disabled = true;
+                }
+                answerButton.addEventListener('click', () => {
+                    answerList.querySelectorAll('.fast-money-answer-choice').forEach(button => {
+                        button.classList.remove('picked-first', 'picked-second');
+                        button.disabled = button.classList.contains('eliminated');
+                    });
+                    answerButton.classList.add(phase === 'first' ? 'picked-first' : 'picked-second');
+                    if (phase === 'first') {
+                        firstSelections[questionIndex] = answer;
+                        skippedQuestions.first.delete(questionIndex);
+                        firstScore = firstSelections.reduce((total, selected) => total + (selected ? selected.points : 0), 0);
+                    } else {
+                        secondSelections[questionIndex] = answer;
+                        skippedQuestions.second.delete(questionIndex);
+                        secondScore = secondSelections.reduce((total, selected) => total + (selected ? selected.points : 0), 0);
+                    }
+                    updateFastMoneyStatus();
+                });
+                answerList.appendChild(answerButton);
+            });
+            const noPointsButton = document.createElement('button');
+            noPointsButton.type = 'button';
+            noPointsButton.className = 'fast-money-answer-choice no-points';
+            noPointsButton.textContent = 'Not on board (0 pts)';
+            noPointsButton.disabled = timerId === null;
+            if (getSelections()[questionIndex] &&
+                getSelections()[questionIndex].text === 'Not on board') {
+                noPointsButton.classList.add(phase === 'first' ? 'picked-first' : 'picked-second');
+            }
+            noPointsButton.addEventListener('click', () => {
+                answerList.querySelectorAll('.fast-money-answer-choice').forEach(button => {
+                    button.classList.remove('picked-first', 'picked-second');
+                    button.disabled = button.classList.contains('eliminated');
+                });
+                noPointsButton.classList.add(phase === 'first' ? 'picked-first' : 'picked-second');
+                const noPointsAnswer = { text: 'Not on board', points: 0 };
+                if (phase === 'first') {
+                    firstSelections[questionIndex] = noPointsAnswer;
+                    skippedQuestions.first.delete(questionIndex);
+                } else {
+                    secondSelections[questionIndex] = noPointsAnswer;
+                    skippedQuestions.second.delete(questionIndex);
+                }
+                updateFastMoneyStatus();
+            });
+            answerList.appendChild(noPointsButton);
+            card.appendChild(answerList);
+            main.appendChild(card);
+            action.textContent = questionIndex === entries.length - 1
+                ? (phase === 'first' ? 'Start second player' : 'Finish Fast Money')
+                : 'Next question';
+            const canNavigate = timerId !== null || timerExpired;
+            action.disabled = !canNavigate;
+            skipAction.disabled = !canNavigate;
+            updateFastMoneyStatus();
+        }
+
+        function renderSidebar() {
+            sidebarList.replaceChildren();
+            firstSelections.forEach((answer, index) => {
+                if (!answer) return;
+                const item = document.createElement('p');
+                item.textContent = `${index + 1}. ${answer.text} (${answer.points} pts)`;
+                sidebarList.appendChild(item);
+            });
+        }
+
+        action.addEventListener('click', advanceQuestion);
+        skipAction.addEventListener('click', () => {
+            getSkipped().add(questionIndex);
+            advanceQuestion();
+        });
+
+        renderQuestion();
+        slide.appendChild(content);
+
+        const controls = document.createElement('div');
+        controls.className = 'nav-controls';
+        controls.innerHTML = `
+            <div class="btn-group">
+                <button class="nav-btn" onclick="prevSlide()">←</button>
+                <div class="nav-label">Prev</div>
+            </div>
+            <div class="btn-group">
+                <button class="nav-btn" onclick="nextSlide()">→</button>
+                <div class="nav-label">Next</div>
+            </div>
+        `;
+        slide.appendChild(controls);
+    }
+
+    function collectGameFromSetup(form) {
+        const rounds = [];
+        form.querySelectorAll('.round-editor').forEach(editor => {
+            const question = editor.querySelector('.round-question').value.trim();
+            const answers = [];
+            editor.querySelectorAll('.answer-editor').forEach(row => {
+                const text = row.querySelector('.round-answer').value.trim();
+                const points = Number(row.querySelector('.round-points').value);
+                if (text) answers.push({ text, points });
+            });
+            rounds.push({ question, answers });
+        });
+        const playFastMoney = form.querySelector('.play-fast-money').checked;
+        const fastMoneySeconds = Math.max(5, Math.min(300, Number(form.querySelector('.fast-money-seconds').value) || 20));
+        const fastMoney = [];
+        if (playFastMoney) {
+            form.querySelectorAll('.fast-money-editor').forEach(editor => {
+                const answers = [];
+                editor.querySelectorAll('.fast-money-answer-row').forEach(row => {
+                    const text = row.querySelector('.fast-money-answer').value.trim();
+                    const points = Number(row.querySelector('.fast-money-answer-points').value);
+                    if (text) answers.push({ text, points });
+                });
+                fastMoney.push({
+                    source: editor.querySelector('.source-select').value,
+                    question: editor.querySelector('.fast-money-question').value.trim(),
+                    answers
+                });
+            });
+        }
+        const game = {
+            name: form.querySelector('.game-name').value.trim(),
+            teamNames: [
+                form.querySelector('.team-one-name').value.trim(),
+                form.querySelector('.team-two-name').value.trim()
+            ],
+            rounds,
+            playFastMoney,
+            fastMoneySeconds,
+            fastMoney
+        };
+        normalizeFastMoneyPoints(game);
+        return game;
+    }
+
+    function startConfiguredGame(game) {
+        normalizeFastMoneyPoints(game);
+        currentGame = game;
+        teamNames = game.teamNames;
+        team1Score = 0;
+        team2Score = 0;
+        activeTeam = 1;
+        strikes = 0;
+        Object.keys(roundStates).forEach(key => delete roundStates[key]);
+        createGeneratedRoundSlides(game);
+        document.querySelector('.game-setup-overlay').remove();
+        showSlide(1);
+        updateAllScoreDisplays();
+    }
+
+    function showGameSetup() {
+        const overlay = document.createElement('div');
+        overlay.className = 'game-setup-overlay';
+        overlay.innerHTML = `
+            <form class="game-setup-dialog">
+                <h2>Set Up Your Family Feud Game</h2>
+                <div class="setup-row">
+                    <label class="setup-field">Game name<input class="game-name" required placeholder="Friday night game"></label>
+                    <label class="setup-field">Number of rounds<input class="round-count" type="number" min="1" max="20" value="3" required></label>
+                </div>
+                <div class="setup-row">
+                    <label class="setup-field">Team 1 name<input class="team-one-name" required value="Team 1"></label>
+                    <label class="setup-field">Team 2 name<input class="team-two-name" required value="Team 2"></label>
+                </div>
+                <label class="setup-field">Saved games<select class="saved-games"><option value="">Choose a saved game to load</option></select></label>
+                <div class="setup-button-row">
+                    <button type="button" class="setup-action secondary load-game">Load selected game</button>
+                    <button type="button" class="setup-action secondary delete-game">Delete selected game</button>
+                </div>
+                <div class="round-editors"></div>
+                <div class="fast-money-setup">
+                    <label><input type="checkbox" class="play-fast-money"> Play Fast Money</label>
+                    <p>Fast Money points are automatically weighted to 20 possible points per question (100 per player, 200 combined).</p>
+                    <label class="setup-field">Seconds per player<input class="fast-money-seconds" type="number" min="5" max="300" value="20" required></label>
+                    <div class="fast-money-editors"></div>
+                </div>
+                <div class="setup-error"></div>
+                <button type="button" class="setup-action secondary save-game">Save game without starting</button>
+                <button type="submit" class="setup-action">Save and start game</button>
+            </form>
+        `;
+        document.body.appendChild(overlay);
+
+        const form = overlay.querySelector('form');
+        const roundEditors = form.querySelector('.round-editors');
+        const fastMoneyEditors = form.querySelector('.fast-money-editors');
+        const savedGamesSelect = form.querySelector('.saved-games');
+        const error = form.querySelector('.setup-error');
+
+        function refreshSavedGames(selectedName = '') {
+            savedGamesSelect.replaceChildren(new Option('Choose a saved game to load', ''));
+            getSavedGames().forEach(savedGame => {
+                const option = new Option(savedGame.name, savedGame.name);
+                savedGamesSelect.appendChild(option);
+            });
+            savedGamesSelect.value = selectedName;
+        }
+
+        function validateSetupGame(game) {
+            if (!game.name || game.teamNames.some(name => !name)) {
+                return 'Enter a game name and both team names.';
+            }
+            if (game.rounds.some(round => !round.question || !round.answers.length || round.answers.some(answer => !answer.points || answer.points < 1))) {
+                return 'Each round needs a question, at least one answer, and positive points.';
+            }
+            if (game.playFastMoney && game.fastMoney.some(entry => {
+                const answers = entry.answers || (entry.answer ? [{ text: entry.answer, points: 1 }] : []);
+                return !entry.question || !answers.length || answers.some(answer => !answer.points || answer.points < 1);
+            })) {
+                return 'Each Fast Money question needs at least one answer, and every answer needs positive points.';
+            }
+            return '';
+        }
+
+        refreshSavedGames();
+        renderRoundEditors(roundEditors, 3);
+        renderFastMoneyEditors(fastMoneyEditors, 5, [{ question: '', answers: [] }, { question: '', answers: [] }, { question: '', answers: [] }]);
+
+        form.querySelector('.round-count').addEventListener('change', event => {
+            const count = Math.max(1, Math.min(20, Number(event.target.value) || 1));
+            event.target.value = count;
+            renderRoundEditors(roundEditors, count);
+        });
+
+        form.querySelector('.play-fast-money').addEventListener('change', event => {
+            fastMoneyEditors.style.display = event.target.checked ? 'block' : 'none';
+        });
+        fastMoneyEditors.style.display = 'none';
+
+        form.querySelector('.load-game').addEventListener('click', () => {
+            const selectedName = savedGamesSelect.value;
+            const savedGame = getSavedGames().find(game => game.name === selectedName);
+            if (!savedGame) {
+                error.textContent = 'Choose a saved game to load.';
+                return;
+            }
+            error.textContent = '';
+            form.querySelector('.game-name').value = savedGame.name;
+            form.querySelector('.team-one-name').value = savedGame.teamNames[0];
+            form.querySelector('.team-two-name').value = savedGame.teamNames[1];
+            form.querySelector('.round-count').value = savedGame.rounds.length;
+            renderRoundEditors(roundEditors, savedGame.rounds.length, savedGame.rounds);
+            form.querySelector('.play-fast-money').checked = Boolean(savedGame.playFastMoney);
+            form.querySelector('.fast-money-seconds').value = savedGame.fastMoneySeconds || 20;
+            fastMoneyEditors.style.display = savedGame.playFastMoney ? 'block' : 'none';
+            renderFastMoneyEditors(fastMoneyEditors, (savedGame.fastMoney || []).length || 5, savedGame.rounds, savedGame.fastMoney || []);
+        });
+
+        form.querySelector('.delete-game').addEventListener('click', () => {
+            const selectedName = savedGamesSelect.value;
+            if (!selectedName) {
+                error.textContent = 'Choose a saved game to delete.';
+                return;
+            }
+            if (!confirm(`Delete saved game "${selectedName}"?`)) return;
+            const games = getSavedGames().filter(game => game.name !== selectedName);
+            localStorage.setItem('cfaFamilyFeudGames', JSON.stringify(games));
+            refreshSavedGames();
+            error.textContent = `Deleted saved game "${selectedName}".`;
+        });
+
+        form.querySelector('.save-game').addEventListener('click', () => {
+            const game = collectGameFromSetup(form);
+            const validationError = validateSetupGame(game);
+            if (validationError) {
+                error.textContent = validationError;
+                return;
+            }
+            saveGame(game);
+            refreshSavedGames(game.name);
+            error.textContent = `Saved game "${game.name}".`;
+        });
+
+        form.addEventListener('submit', event => {
+            event.preventDefault();
+            const game = collectGameFromSetup(form);
+            const validationError = validateSetupGame(game);
+            if (validationError) {
+                error.textContent = validationError;
+                return;
+            }
+            saveGame(game);
+            startConfiguredGame(game);
+        });
+    }
+
     function showSlide(slideNumber) {
         // Hide all slides
         document.querySelectorAll('.slide-container').forEach(slide => {
@@ -882,9 +2175,40 @@ h1, h2, h3 {
         updateAllScoreDisplays();
         
         // Update winner message on final slide
-        if (slideNumber === 10) {
+        if (slideNumber === totalSlides) {
             updateWinnerMessage();
         }
+    }
+
+    function promptForFaceoffWinner(answerId, points) {
+        const overlay = document.createElement('div');
+        overlay.className = 'team-choice-overlay';
+        overlay.innerHTML = `
+            <div class="team-choice-dialog">
+                <h2>Who got the face-off answer right?</h2>
+                <div class="team-choice-buttons">
+                    <button class="team-choice-button team-one" data-team="1"></button>
+                    <button class="team-choice-button team-two" data-team="2"></button>
+                </div>
+            </div>
+        `;
+
+        overlay.querySelector('[data-team="1"]').textContent = teamNames[0];
+        overlay.querySelector('[data-team="2"]').textContent = teamNames[1];
+        overlay.querySelectorAll('.team-choice-button').forEach(button => {
+            button.addEventListener('click', () => {
+                const roundState = getRoundState();
+                activeTeam = Number(button.dataset.team);
+                strikes = 0;
+                roundState.faceoffResolved = true;
+                roundState.pendingAnswerId = null;
+                roundState.awardedAnswers.add(answerId);
+                addPoints(points, activeTeam);
+                overlay.remove();
+            });
+        });
+
+        document.body.appendChild(overlay);
     }
 
     function nextSlide() {
@@ -919,6 +2243,10 @@ h1, h2, h3 {
     function addPointsFromAnswer(answerId) {
         const answerElement = document.getElementById(answerId);
         if (!answerElement) return;
+
+        const roundState = getRoundState();
+        if (roundState.resolved) return;
+        if (roundState.awardedAnswers.has(answerId)) return;
         
         // Find the score in the answer box
         const answerWrapper = answerElement.closest('.answer-wrapper');
@@ -927,13 +2255,31 @@ h1, h2, h3 {
             if (scoreBox) {
                 const points = parseInt(scoreBox.textContent);
                 if (!isNaN(points)) {
+                    if (!roundState.faceoffResolved) {
+                        roundState.pendingAnswerId = answerId;
+                        promptForFaceoffWinner(answerId, points);
+                        return;
+                    }
+
+                    roundState.awardedAnswers.add(answerId);
                     addPoints(points, activeTeam);
+                    if (roundState.stealPending) {
+                        roundState.stealPending = false;
+                        roundState.resolved = true;
+                    }
                 }
             }
         }
     }
 
     function updateAllScoreDisplays() {
+        document.querySelectorAll('.team-name').forEach((nameElement, index) => {
+            nameElement.textContent = teamNames[index % 2];
+        });
+        document.querySelectorAll('.team-control-label').forEach(label => {
+            label.textContent = teamNames[Number(label.dataset.team) - 1];
+        });
+
         // Update main scores
         document.querySelectorAll('.team-score').forEach(scoreElement => {
             const id = scoreElement.id;
@@ -948,20 +2294,37 @@ h1, h2, h3 {
     function updateWinnerMessage() {
         const messageElement = document.getElementById('winner-message');
         if (!messageElement) return;
+
+        messageElement.replaceChildren();
+        const result = document.createElement('span');
+        result.style.color = '#FFD700';
+        const detail = document.createTextNode('Congratulations!');
+        const lineBreak = document.createElement('br');
         
         if (team1Score > team2Score) {
-            messageElement.innerHTML = '<span style="color: #FFD700;">TEAM 1 WINS!</span><br>Congratulations!';
+            result.textContent = `${teamNames[0].toUpperCase()} WINS!`;
         } else if (team2Score > team1Score) {
-            messageElement.innerHTML = '<span style="color: #FFD700;">TEAM 2 WINS!</span><br>Congratulations!';
+            result.textContent = `${teamNames[1].toUpperCase()} WINS!`;
         } else {
-            messageElement.innerHTML = '<span style="color: #FFD700;">IT\'S A TIE!</span><br>Great game everyone!';
+            result.textContent = "IT'S A TIE!";
+            detail.textContent = 'Great game everyone!';
         }
+        messageElement.append(result, lineBreak, detail);
     }
 
     function switchTeam() {
         activeTeam = activeTeam === 1 ? 2 : 1;
         strikes = 0; // Reset strikes when team switches
         // Could add visual indication of which team is active
+    }
+
+    function revealAllAnswers() {
+        const currentBoard = document.getElementById(`slide${currentSlide}`);
+        if (!currentBoard) return;
+
+        currentBoard.querySelectorAll('.toggle-input').forEach(answer => {
+            answer.checked = true;
+        });
     }
 
     // ========== AUDIO SYSTEM ==========
@@ -1033,7 +2396,8 @@ h1, h2, h3 {
 
     // ========== STRIKE SYSTEM ==========
     function addStrike() {
-        strikes++;
+        const roundState = getRoundState();
+        if (roundState.resolved) return;
         
         // Show strike visual on current slide
         const overlay = document.getElementById(`strike-overlay-${currentSlide}`);
@@ -1046,12 +2410,24 @@ h1, h2, h3 {
                 setTimeout(() => overlay.style.display = 'none', 200);
             }, 800);
         }
+
+        // The opposing team gets one steal attempt. A wrong steal ends the
+        // round without adding another strike or awarding points.
+        if (roundState.stealPending) {
+            roundState.stealPending = false;
+            roundState.resolved = true;
+            revealAllAnswers();
+            return;
+        }
+
+        strikes++;
         
         // Check if team has 3 strikes
         if (strikes >= maxStrikes) {
+            roundState.stealPending = true;
             setTimeout(() => {
-                alert(`Team ${activeTeam} has 3 strikes! Other team can now steal!`);
-                switchTeam();
+                alert(`${teamNames[activeTeam - 1]} has 3 strikes! ${teamNames[activeTeam === 1 ? 1 : 0]} can now steal!`);
+                activeTeam = activeTeam === 1 ? 2 : 1;
             }, 1000);
         }
     }
@@ -1060,7 +2436,6 @@ h1, h2, h3 {
     function selectTeam(team) {
         activeTeam = team;
         strikes = 0;
-        alert(`Team ${team} is now playing!`);
     }
 
     // ========== KEYBOARD SHORTCUTS ==========
@@ -1093,8 +2468,7 @@ h1, h2, h3 {
     });
 
     // ========== INITIALIZATION ==========
-    // Initialize by showing first slide
-    showSlide(1);
+    showGameSetup();
     
     // Add team selection buttons
     document.addEventListener('DOMContentLoaded', () => {
@@ -1107,8 +2481,9 @@ h1, h2, h3 {
                 <button class="control-btn" onclick="selectTeam(1)" style="background: #0055a5;">
                     <i class="fa-solid fa-1"></i>
                 </button>
-                <div class="control-label">Team 1</div>
+                <div class="control-label team-control-label" data-team="1"></div>
             `;
+            teamSelect.querySelector('.control-label').textContent = teamNames[0];
             hostControls.appendChild(teamSelect);
             
             const teamSelect2 = document.createElement('div');
@@ -1117,8 +2492,9 @@ h1, h2, h3 {
                 <button class="control-btn" onclick="selectTeam(2)" style="background: #dd0031;">
                     <i class="fa-solid fa-2"></i>
                 </button>
-                <div class="control-label">Team 2</div>
+                <div class="control-label team-control-label" data-team="2"></div>
             `;
+            teamSelect2.querySelector('.control-label').textContent = teamNames[1];
             hostControls.appendChild(teamSelect2);
         }
         
