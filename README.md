@@ -1,6 +1,6 @@
-# Chick-fil-A Family Feud
+# Mock Family Feud
 
-An interactive, browser-based Family Feud game for Chick-fil-A team events, parties, and training activities. The game is implemented as a self-contained HTML file, so no build tools, server, or package installation are required.
+An interactive, browser-based mock Family Feud game created for team events, parties, and training activities. This is an original fan-made game-show-style experience, not an official Family Feud product or an official Chick-fil-A application. The game is implemented as a self-contained HTML file, so no build tools, server, or package installation are required.
 
 ## Features
 
@@ -45,7 +45,6 @@ Questions, answers, team names, scoring, and themes can be adjusted in the HTML 
 | File | Description |
 | --- | --- |
 | [`Mock_Family_Feud.html`](./Mock_Family_Feud.html) | Standalone configurable game experience |
-| [`cfa_game.html`](./cfa_game.html) | Alternate entry point for the same game experience |
 
 ## Browser support
 
@@ -53,4 +52,4 @@ Use a current version of Chrome, Edge, Firefox, or Safari. The game loads Google
 
 ## License
 
-This project is for personal and internal team use. Feel free to adapt it for other team events.
+This project is an unofficial, fan-made mock game for personal and internal team use. Family Feud is a trademark of its respective owner; this project is not affiliated with or endorsed by the trademark owner or Chick-fil-A. Feel free to adapt it for other team events.
