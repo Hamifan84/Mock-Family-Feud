@@ -1,6 +1,6 @@
 # Mock Family Feud
 
-An interactive, browser-based mock Family Feud game created for team events, parties, and training activities. This is an original fan-made game-show-style experience, not an official Family Feud product or an official Chick-fil-A application. The game is implemented as a self-contained HTML file, so no build tools, server, or package installation are required.
+An interactive, browser-based mock Family Feud game created for team events, parties, and training activities. This is an original fan-made game-show-style experience, not an official Family Feud product. The game is implemented as a self-contained HTML file, so no build tools, server, or package installation are required.
 
 ## Features
 
