@@ -2042,6 +2042,7 @@ h1, h2, h3 {
                     <button type="button" class="setup-action secondary delete-game">Delete selected game</button>
                 </div>
                 <div class="round-editors"></div>
+                <button type="button" class="setup-action secondary add-round">Add round</button>
                 <div class="fast-money-setup">
                     <label><input type="checkbox" class="play-fast-money"> Play Fast Money</label>
                     <p>Fast Money points are automatically weighted to 20 possible points per question (100 per player, 200 combined).</p>
@@ -2059,6 +2060,7 @@ h1, h2, h3 {
         const roundEditors = form.querySelector('.round-editors');
         const fastMoneyEditors = form.querySelector('.fast-money-editors');
         const savedGamesSelect = form.querySelector('.saved-games');
+        const roundCountInput = form.querySelector('.round-count');
         const error = form.querySelector('.setup-error');
 
         function refreshSavedGames(selectedName = '') {
@@ -2086,14 +2088,57 @@ h1, h2, h3 {
             return '';
         }
 
+        function collectRoundEditors() {
+            return Array.from(roundEditors.querySelectorAll('.round-editor')).map(editor => ({
+                question: editor.querySelector('.round-question').value,
+                answers: Array.from(editor.querySelectorAll('.answer-editor')).map(row => ({
+                    text: row.querySelector('.round-answer').value,
+                    points: row.querySelector('.round-points').value
+                }))
+            }));
+        }
+
+        function refreshFastMoneyRoundOptions(rounds) {
+            fastMoneyEditors.querySelectorAll('.source-select').forEach(source => {
+                const selectedValue = source.value;
+                source.querySelectorAll('option[value^="round-"]').forEach(option => option.remove());
+                rounds.forEach((round, roundIndex) => {
+                    const option = new Option(
+                        `Use Round ${roundIndex + 1}: ${round.question || '(unnamed question)'}`,
+                        `round-${roundIndex}`
+                    );
+                    source.appendChild(option);
+                });
+                source.value = Array.from(source.options).some(option => option.value === selectedValue)
+                    ? selectedValue
+                    : 'custom';
+            });
+        }
+
         refreshSavedGames();
         renderRoundEditors(roundEditors, 3);
         renderFastMoneyEditors(fastMoneyEditors, 5, [{ question: '', answers: [] }, { question: '', answers: [] }, { question: '', answers: [] }]);
 
-        form.querySelector('.round-count').addEventListener('change', event => {
+        roundCountInput.addEventListener('change', event => {
             const count = Math.max(1, Math.min(20, Number(event.target.value) || 1));
             event.target.value = count;
-            renderRoundEditors(roundEditors, count);
+            const rounds = collectRoundEditors();
+            renderRoundEditors(roundEditors, count, rounds);
+            refreshFastMoneyRoundOptions(collectRoundEditors());
+        });
+
+        form.querySelector('.add-round').addEventListener('click', () => {
+            const currentCount = Number(roundCountInput.value) || 1;
+            if (currentCount >= 20) {
+                error.textContent = 'You can add up to 20 rounds.';
+                return;
+            }
+            const rounds = collectRoundEditors();
+            roundCountInput.value = currentCount + 1;
+            renderRoundEditors(roundEditors, currentCount + 1, rounds);
+            refreshFastMoneyRoundOptions(collectRoundEditors());
+            error.textContent = '';
+            roundEditors.lastElementChild.scrollIntoView({ behavior: 'smooth', block: 'center' });
         });
 
         form.querySelector('.play-fast-money').addEventListener('change', event => {
