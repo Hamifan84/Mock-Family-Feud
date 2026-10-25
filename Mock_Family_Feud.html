@@ -2440,6 +2440,13 @@ h1, h2, h3 {
 
     // ========== KEYBOARD SHORTCUTS ==========
     document.addEventListener('keydown', (e) => {
+        const target = e.target;
+        if (target instanceof HTMLElement &&
+            (target.matches('input, textarea, select, [contenteditable="true"]') ||
+             target.closest('[contenteditable="true"]'))) {
+            return;
+        }
+
         switch(e.key) {
             case 'ArrowRight':
                 e.preventDefault();
